@@ -1,0 +1,224 @@
+import datetime
+import random
+
+# ----------------------------------------
+# INTRO
+# ----------------------------------------
+
+print("=" * 70)
+print("🤖 ADVANCED AI SMART CHATBOT")
+print("=" * 70)
+
+print("Type 'help' to see all commands")
+print("Type 'bye' to exit chatbot")
+
+# ----------------------------------------
+# QUOTES
+# ----------------------------------------
+
+quotes = [
+    "Success comes from hard work.",
+    "Never stop learning.",
+    "Dream big and achieve big.",
+    "Believe in yourself.",
+    "Practice makes perfect.",
+    "Consistency is the key to success."
+]
+
+# ----------------------------------------
+# JOKES
+# ----------------------------------------
+
+jokes = [
+    "Why do programmers hate nature? Too many bugs.",
+    "Why did Python go to school? To improve its class.",
+    "Why was the computer cold? Because it forgot to close Windows."
+]
+
+# ----------------------------------------
+# MAIN LOOP
+# ----------------------------------------
+
+while True:
+
+    user = input("\n🗨 You: ").lower()
+
+    # ------------------------------------
+
+    if user == "hello":
+
+        print("🤖 Bot: Hello! Welcome!")
+
+    # ------------------------------------
+
+    elif user == "how are you":
+
+        print("🤖 Bot: I am doing great!")
+
+    # ------------------------------------
+
+    elif user == "your name":
+
+        print("🤖 Bot: My name is Advanced AI Chatbot")
+
+    # ------------------------------------
+
+    elif user == "time":
+
+        current_time = datetime.datetime.now().strftime("%H:%M:%S")
+
+        print("⏰ Current Time:", current_time)
+
+    # ------------------------------------
+
+    elif user == "date":
+
+        today = datetime.date.today()
+
+        print("📅 Today's Date:", today)
+
+    # ------------------------------------
+
+    elif user == "quote":
+
+        print("💡 Motivational Quote:")
+
+        print(random.choice(quotes))
+
+    # ------------------------------------
+
+    elif user == "joke":
+
+        print("😂 Joke:")
+
+        print(random.choice(jokes))
+
+    # ------------------------------------
+
+    elif user == "calculator":
+
+        try:
+
+            num1 = float(input("Enter first number: "))
+
+            num2 = float(input("Enter second number: "))
+
+            print("\n1. Addition")
+            print("2. Subtraction")
+            print("3. Multiplication")
+            print("4. Division")
+
+            choice = int(input("Choose operation: "))
+
+            if choice == 1:
+
+                print("✅ Result:", num1 + num2)
+
+            elif choice == 2:
+
+                print("✅ Result:", num1 - num2)
+
+            elif choice == 3:
+
+                print("✅ Result:", num1 * num2)
+
+            elif choice == 4:
+
+                print("✅ Result:", num1 / num2)
+
+            else:
+
+                print("❌ Invalid Choice")
+
+        except:
+
+            print("❌ Error occurred")
+
+    # ------------------------------------
+
+    elif user == "marks":
+
+        try:
+
+            tamil = int(input("Tamil Mark: "))
+            english = int(input("English Mark: "))
+            maths = int(input("Maths Mark: "))
+            science = int(input("Science Mark: "))
+            social = int(input("Social Mark: "))
+
+            total = tamil + english + maths + science + social
+
+            average = total / 5
+
+            print("\n📊 TOTAL:", total)
+
+            print("📈 AVERAGE:", average)
+
+        except:
+
+            print("❌ Invalid Input")
+
+    # ------------------------------------
+
+    elif user == "even or odd":
+
+        number = int(input("Enter a number: "))
+
+        if number % 2 == 0:
+
+            print("✅ Even Number")
+
+        else:
+
+            print("✅ Odd Number")
+
+    # ------------------------------------
+
+    elif user == "password generator":
+
+        chars = "abcdefghijklmnopqrstuvwxyz123456789"
+
+        password = ""
+
+        for i in range(8):
+
+            password += random.choice(chars)
+
+        print("🔐 Generated Password:", password)
+
+    # ------------------------------------
+
+    elif user == "help":
+
+        print("\n" + "=" * 50)
+
+        print("📋 AVAILABLE COMMANDS")
+
+        print("=" * 50)
+
+        print("hello")
+        print("how are you")
+        print("your name")
+        print("time")
+        print("date")
+        print("quote")
+        print("joke")
+        print("calculator")
+        print("marks")
+        print("even or odd")
+        print("password generator")
+        print("bye")
+
+    # ------------------------------------
+
+    elif user == "bye":
+
+        print("👋 Bot: Goodbye!")
+
+        break
+
+    # ------------------------------------
+
+    else:
+
+        print("❌ Bot: Command not found")
