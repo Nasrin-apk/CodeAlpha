@@ -1,0 +1,69 @@
+import random
+
+print("=" * 50)
+print("WELCOME TO HANGMAN GAME")
+print("=" * 50)
+print("Rule: Guess the word letter by letter")
+print("You have 6 attempts only!")
+print("=" * 50)
+
+words = [
+    "python",
+    "apple",
+    "tiger",
+    "robot",
+    "mango",
+    "elephant",
+    "computer",
+    "science",
+    "program",
+    "keyboard"
+]
+
+word = random.choice(words)
+
+guessed_letters = []
+wrong_letters = []
+attempts = 6
+
+while attempts > 0:
+
+    display = ""
+
+    for letter in word:
+        if letter in guessed_letters:
+            display += letter + " "
+        else:
+            display += "_ "
+
+    print("\nWord:", display)
+    print("Wrong letters:", wrong_letters)
+    print("Attempts left:", attempts)
+
+    if "_" not in display:
+        print("\nYOU WON THE GAME")
+        print("Correct word:", word)
+        break
+
+    guess = input("\nEnter a letter: ").lower()
+
+    if len(guess) != 1:
+        print("Enter only one letter")
+        continue
+
+    if guess in guessed_letters or guess in wrong_letters:
+        print("Already guessed this letter")
+        continue
+
+    if guess in word:
+        guessed_letters.append(guess)
+        print("Correct Guess")
+
+    else:
+        wrong_letters.append(guess)
+        attempts -= 1
+        print("Wrong Guess")
+
+if attempts == 0:
+    print("\nGAME OVER")
+    print("Correct word:", word)
